@@ -5,9 +5,21 @@ const manifest: ManifestV3Export = {
   name: 'page-md',
   version: '1.0.0',
   description: 'Turn visible webpage content into clean Markdown.',
+  icons: {
+    16: 'icons/icon-16.svg',
+    32: 'icons/icon-32.svg',
+    48: 'icons/icon-48.svg',
+    128: 'icons/icon-128.png',
+  },
   action: {
     default_title: 'page-md',
     default_popup: 'src/popup/index.html',
+    default_icon: {
+      16: 'icons/icon-16.svg',
+      32: 'icons/icon-32.svg',
+      48: 'icons/icon-48.svg',
+      128: 'icons/icon-128.png',
+    },
   },
   background: {
     service_worker: 'src/background/background.ts',

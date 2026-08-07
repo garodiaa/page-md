@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Derive release version
+        id: version
+        shell: bash
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build extension
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          test -f dist/manifest.json
+          test -d dist/icons
+          test -f dist/icons/icon-128.png
+
+      - name: Create release archive
+        shell: bash
+        run: |
+          ZIP_NAME="PageMD-v${{ steps.version.outputs.version }}.zip"
+          cd dist
+          zip -r "../${ZIP_NAME}" .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: PageMD v${{ steps.version.outputs.version }}
+          files: PageMD-v${{ steps.version.outputs.version }}.zip

@@ -1,5 +1,7 @@
 # page-md
 
+![page-md icon](public/icons/icon-128.png)
+
 ![Version](https://img.shields.io/badge/version-1.0.0-purple?style=flat)
 ![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript&logoColor=white&style=flat)
 ![React](https://img.shields.io/badge/UI-React-61DAFB?logo=react&logoColor=black&style=flat)
@@ -27,7 +29,20 @@ page-md is a Chrome Manifest V3 extension for saving webpages as well-structured
 - Shows word count and estimated reading time
 - Minimal, fixed light-mode interface
 
-## Install locally
+## Install from Releases
+
+1. Go to the Releases page.
+2. Download the latest ZIP.
+3. Extract it.
+4. Open Chrome.
+5. Navigate to `chrome://extensions`.
+6. Enable Developer Mode.
+7. Click Load unpacked.
+8. Select the extracted folder.
+
+The extracted folder contains `manifest.json`, `assets/`, `icons/`, and the rest of the built extension files directly, so Chrome can load it without any extra nesting.
+
+## Build locally
 
 ### Requirements
 
