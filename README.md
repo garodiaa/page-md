@@ -2,7 +2,7 @@
 
 ![page-md icon](public/icons/icon-128.png)
 
-![Version](https://img.shields.io/badge/version-1.0.0-purple?style=flat)
+![Version](https://img.shields.io/badge/version-1.0.1-purple?style=flat)
 ![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript&logoColor=white&style=flat)
 ![React](https://img.shields.io/badge/UI-React-61DAFB?logo=react&logoColor=black&style=flat)
 ![Vite](https://img.shields.io/badge/Bundler-Vite-646CFF?logo=vite&logoColor=white&style=flat)
