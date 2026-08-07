@@ -46,6 +46,20 @@ jobs:
           cd dist
           zip -r "../${ZIP_NAME}" .
 
+      - name: Verify archive contents
+        shell: bash
+        run: |
+          ZIP_NAME="PageMD-v${{ steps.version.outputs.version }}.zip"
+          unzip -l "${ZIP_NAME}"
+          if unzip -l "${ZIP_NAME}" | awk '{print $4}' | grep -E '^(src/|public/|\.github/|package\.json|vite\.config\.ts|README\.md)$'; then
+            echo "Archive contains source files or project metadata."
+            exit 1
+          fi
+          if ! unzip -l "${ZIP_NAME}" | awk '{print $4}' | grep -q '^manifest\.json$'; then
+            echo "Archive does not contain manifest.json at the root."
+            exit 1
+          fi
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:

@@ -96,6 +96,10 @@ page-md processes page content locally in the browser. It does not send extracte
 
 Do not commit copied page source or exported HTML from authenticated sites to a public repository: these files can contain session-related values or personal information.
 
+## Acceptable Use
+
+Do not use page-md for illegal activity, unauthorized access, or any use that violates applicable laws, regulations, or website terms of service.
+
 ## Development
 
 ```bash
